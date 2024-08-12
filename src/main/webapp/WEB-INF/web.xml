@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <display-name>Test Servlet Web Application</display-name>
+
+    <context-param>
+        <param-name>context1</param-name>
+        <param-value>context1_value</param-value>
+    </context-param>
+    <context-param>
+        <param-name>context2</param-name>
+        <param-value>context2_value</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>ru.academits.voropaeva.servlets.SecondServlet</servlet-class>
+
+        <init-param>
+            <param-name>init1</param-name>
+            <param-value>init1_value</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>init2</param-name>
+            <param-value>init2_value</param-value>
+        </init-param>
+    </servlet>
+    <listener>
+        <listener-class>ru.academits.voropaeva.listeners.SecondListener</listener-class>
+    </listener>
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/servlet2</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>SecondFilter</filter-name>
+        <filter-class>ru.academits.voropaeva.filters.SecondFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SecondFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <servlet-name>SecondServlet</servlet-name>
+    </filter-mapping>
+</web-app>
