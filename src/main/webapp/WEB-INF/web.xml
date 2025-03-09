@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>SecondServlet</servlet-name>
-        <servlet-class>ru.academits.voropaeva.servlets.SecondServlet</servlet-class>
+        <servlet-class>ru.academits.voropaeva.helloWorldServlet.servlets.Servlet2</servlet-class>
 
         <init-param>
             <param-name>init1</param-name>
@@ -30,17 +30,18 @@
             <param-value>init2_value</param-value>
         </init-param>
     </servlet>
-    <listener>
-        <listener-class>ru.academits.voropaeva.listeners.SecondListener</listener-class>
-    </listener>
     <servlet-mapping>
         <servlet-name>SecondServlet</servlet-name>
         <url-pattern>/servlet2</url-pattern>
     </servlet-mapping>
 
+    <listener>
+        <listener-class>ru.academits.voropaeva.helloWorldServlet.listeners.RequestListener</listener-class>
+    </listener>
+
     <filter>
         <filter-name>SecondFilter</filter-name>
-        <filter-class>ru.academits.voropaeva.filters.SecondFilter</filter-class>
+        <filter-class>ru.academits.voropaeva.helloWorldServlet.filters.Filter2</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>SecondFilter</filter-name>

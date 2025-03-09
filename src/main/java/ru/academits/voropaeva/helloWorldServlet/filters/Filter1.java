@@ -1,11 +1,10 @@
-package ru.academits.voropaeva.filters;
+package ru.academits.voropaeva.helloWorldServlet.filters;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
@@ -14,10 +13,10 @@ import java.io.IOException;
         filterName = "/*",
         servletNames = "FirstServlet"
 )
-public class FirstFilter extends HttpFilter {
+public class Filter1 extends HttpFilter {
     @Override
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-        ((HttpServletResponse) res).addHeader("X-Test-1", "Test-1");
+    protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
+        res.addHeader("X-Test-1", "Test-1");
         chain.doFilter(req, res);
     }
 }
