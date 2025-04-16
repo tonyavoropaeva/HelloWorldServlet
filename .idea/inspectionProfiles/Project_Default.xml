@@ -5,6 +5,7 @@
       <option name="customHeaders">
         <set>
           <option value="X-Test-2" />
+          <option value="X-Test-1" />
         </set>
       </option>
     </inspection_tool>

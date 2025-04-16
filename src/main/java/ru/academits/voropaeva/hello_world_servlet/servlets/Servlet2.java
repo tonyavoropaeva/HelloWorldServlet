@@ -1,24 +1,17 @@
-package ru.academits.voropaeva.helloWorldServlet.servlets;
+package ru.academits.voropaeva.hello_world_servlet.servlets;
 
-import jakarta.servlet.annotation.WebInitParam;
-import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serial;
 import java.util.Enumeration;
 
-@WebServlet(
-        value = "/servlet1",
-        initParams = {
-                @WebInitParam(name = "init1", value = "init1_value"),
-                @WebInitParam(name = "init2", value = "init2_value")
-        }
-)
-public class Servlet1 extends HttpServlet {
+public class Servlet2 extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -49,20 +42,22 @@ public class Servlet1 extends HttpServlet {
             String parameterName = initParametersNames.nextElement();
 
             printWriter.println("<tr>");
-            printWriter.println("<td>" + parameterName + "</td>");
-            printWriter.println("<td>" + getInitParameter(parameterName) + "</td>");
+            printWriter.println("<td>" + StringEscapeUtils.escapeHtml4(parameterName) + "</td>");
+            printWriter.println("<td>" + StringEscapeUtils.escapeHtml4(getInitParameter(parameterName)) + "</td>");
             printWriter.println("</tr>");
         }
 
-        Enumeration<String> ContextParametersNames = getServletContext().getInitParameterNames();
+        ServletContext servletContext = getServletContext();
+
+        Enumeration<String> ContextParametersNames = servletContext.getInitParameterNames();
         printWriter.println("<tr><td colspan=\"2\">context parameters:</td></tr>");
 
         while (ContextParametersNames.hasMoreElements()) {
             String contextName = ContextParametersNames.nextElement();
 
             printWriter.println("<tr>");
-            printWriter.println("<td>" + contextName + "</td>");
-            printWriter.println("<td>" + getServletContext().getInitParameter(contextName) + "</td>");
+            printWriter.println("<td>" + StringEscapeUtils.escapeHtml4(contextName) + "</td>");
+            printWriter.println("<td>" + StringEscapeUtils.escapeHtml4(servletContext.getInitParameter(contextName)) + "</td>");
             printWriter.println("</tr>");
         }
 

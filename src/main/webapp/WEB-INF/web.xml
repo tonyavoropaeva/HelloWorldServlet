@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>SecondServlet</servlet-name>
-        <servlet-class>ru.academits.voropaeva.helloWorldServlet.servlets.Servlet2</servlet-class>
+        <servlet-class>ru.academits.voropaeva.hello_world_servlet.servlets.Servlet2</servlet-class>
 
         <init-param>
             <param-name>init1</param-name>
@@ -36,12 +36,12 @@
     </servlet-mapping>
 
     <listener>
-        <listener-class>ru.academits.voropaeva.helloWorldServlet.listeners.RequestListener</listener-class>
+        <listener-class>ru.academits.voropaeva.hello_world_servlet.listeners.RequestListener</listener-class>
     </listener>
 
     <filter>
         <filter-name>SecondFilter</filter-name>
-        <filter-class>ru.academits.voropaeva.helloWorldServlet.filters.Filter2</filter-class>
+        <filter-class>ru.academits.voropaeva.hello_world_servlet.filters.Filter2</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>SecondFilter</filter-name>
